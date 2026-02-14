@@ -69,7 +69,7 @@ if (isset($_SESSION['email'])){
 
     if($stmt->rowCount() == 1){
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        header('location: passangerSpace.php');
+        header('location: orders.php');
     }
     else{echo "Connectez vous pour commander!"; 
     } 
