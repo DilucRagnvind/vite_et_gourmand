@@ -27,14 +27,14 @@ try{
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Récupérer les données du formulaire d’inscription 
-    
-    $emailForm = $_POST['email'];
-    $passwordForm = $_POST['password'];
     $nameForm = $_POST['name'];
-    $phoneForm = $_POST['phone'];
-    $cityForm = $_POST['city'];
-    $countryForm = $_POST['country'];
+    $surnameForm = $_POST['surname'];
+    $emailForm = $_POST['email'];
     $adressForm = $_POST['adress'];
+    $phoneForm = $_POST['phone'];
+    $deliveryDateForm = $_POST['deliveryDate'];
+    $deliveryTimeForm = $_POST['deliveryTime'];
+    
 
     
     $query = "SELECT * FROM users WHERE email = :email";
@@ -46,24 +46,22 @@ try{
         die("Cette adresse email est déjà utilisée");
     }
 
-    // Hashage(encryptage)
-    $hashedPassword = password_hash($passwordForm, PASSWORD_DEFAULT);
 
     //Insérer les données dans la base 
-    $insertQuery = "INSERT INTO users (email, password, name,  phone, city, country, adress)
-     VALUES (:email, :password, :name, :phone, :city, :country :adress)";
+    $insertQuery = "INSERT INTO orders (user_name, user_surname, user_email, adress, user_phone, delivery_date, delivery_time )
+     VALUES (:user_name, :user_surname, :user_email, :adress, :user_phone, :delivery_date, :delivery_time)";
     $stmt = $pdo->prepare($insertQuery);
-    $stmt->bindParam(':email', $emailForm);
-    $stmt->bindParam(':password', $hashedPassword);
-    $stmt->bindParam(':name', $nameForm);
 
-    $stmt->bindParam(':phone', $telephoneForm);
-    $stmt->bindParam(':city', $pseudoForm);
-    $stmt->bindParam(':country', $statusForm);
+    $stmt->bindParam(':user_name', $nameForm);
+    $stmt->bindParam(':user_surname', $surnameForm);
+    $stmt->bindParam(':user_email', $emailForm);
     $stmt->bindParam(':adress', $adressForm);
+    $stmt->bindParam(':user_phone', $phoneForm);
+    $stmt->bindParam(':delivery_date', $deliveryDateForm);
+    $stmt->bindParam(':delivery_time', $deliveryTimeForm);
     $stmt->execute();
 
-    echo "Inscription réussie";
+    echo "Commande envoyée";
     header('location: orders.php');
 
 }

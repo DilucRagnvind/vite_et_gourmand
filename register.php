@@ -27,7 +27,7 @@ include('header.html');
       <label for="name">Prenom :</label>
       <input type="text" name="name" required><br><br>
 
-      <label for="tphone">Telephone :</label>
+      <label for="phone">Telephone :</label>
       <input type="text" name="phone" ><br><br>
 
       <label for="city">Ville :</label>
