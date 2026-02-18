@@ -39,7 +39,7 @@ include('header.html');
       <label for="adress">Adresse :</label>
       <input type="text" name="adress" ><br><br>
 
-      <input type="submit" value="S’inscrire">
+      <input class="button" type="submit" value="S’inscrire">
   </form>
 
 </main>

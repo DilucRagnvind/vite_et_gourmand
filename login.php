@@ -25,6 +25,9 @@ session_start();
         <!-- BUTTON -->
         <input type="submit" value="Se connecter"/>
     </form>
+    <!-- INSCRIPTION -->
+    <h4>Vous n'avez pas encore de compte?</h4>
+    <button class="button"><a href="register.php">Inscription</a></button>
 </body>
 </html>
 <?php

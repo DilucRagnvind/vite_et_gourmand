@@ -20,13 +20,14 @@ include('header.html');
 
 $dsn = 'mysql:host=localhost;dbname=vite_et_gourmand';
 $username = 'user_gourmand';
-$password = '$2y$12$p4hpWdhOec/2w626F1DDKOh8sZxCxssiExmxpkeEKLnaIInTbRQra';
+$password = '';
 
 try{
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Récupérer les données du formulaire d’inscription 
+    $menuForm = $_POST['menu'];
     $nameForm = $_POST['name'];
     $surnameForm = $_POST['surname'];
     $emailForm = $_POST['email'];
@@ -48,15 +49,16 @@ try{
 
 
     //Insérer les données dans la base 
-    $insertQuery = "INSERT INTO orders (user_name, user_surname, user_email, adress, user_phone, delivery_date, delivery_time )
-     VALUES (:user_name, :user_surname, :user_email, :adress, :user_phone, :delivery_date, :delivery_time)";
+    $insertQuery = "INSERT INTO orders (user_name, user_surname, user_email, adress, user_phone, menu_title, delivery_date, delivery_time )
+     VALUES (:user_name, :user_surname, :user_email, :adress, :user_phone, :menu_title, :delivery_date, :delivery_time)";
     $stmt = $pdo->prepare($insertQuery);
-
+    
     $stmt->bindParam(':user_name', $nameForm);
     $stmt->bindParam(':user_surname', $surnameForm);
     $stmt->bindParam(':user_email', $emailForm);
     $stmt->bindParam(':adress', $adressForm);
     $stmt->bindParam(':user_phone', $phoneForm);
+    $stmt->bindParam(':menu_title', $menuForm);
     $stmt->bindParam(':delivery_date', $deliveryDateForm);
     $stmt->bindParam(':delivery_time', $deliveryTimeForm);
     $stmt->execute();

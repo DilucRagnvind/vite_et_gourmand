@@ -18,7 +18,7 @@ include('header.html');
 
 $dsn = 'mysql:host=localhost;dbname=vite_et_gourmand';
 $username = 'user_gourmand';
-$password = '$2y$12$p4hpWdhOec/2w626F1DDKOh8sZxCxssiExmxpkeEKLnaIInTbRQra';
+$password = '';
 
 session_start();
 try{
@@ -41,7 +41,7 @@ try{
         if(password_verify($passwordForm, $user['password'])){
             echo "Connexion réussie ! Bienvenue " . $user['name'] . "  " . $user['surname']. "<br><br>";
            $_SESSION["email"] = $user['email'];
-           $_SESSION["userid"] = $user['userId'];
+           $_SESSION["user_id"] = $user['user_id'];
            echo $_SESSION["email"] . "<br><br>";
            echo $_SESSION["userid"] . "<br><br>";
 

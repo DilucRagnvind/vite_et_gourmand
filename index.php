@@ -12,7 +12,7 @@ include('header.html');
 </head>
 <body>
     <h1>VITE ET GOURMAND</h1>
-    <img src="" alt="">
+    <img src="images\premierPlatPaques.jpg" alt="un dessin de burger">
     <p>presentation
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad corrupti quod officia? Necessitatibus, excepturi sapiente. Harum provident cumque explicabo aperiam sed voluptatem. Maxime alias obcaecati aliquid, perferendis dolor cupiditate nemo.
 

@@ -28,14 +28,17 @@ header, footer{
 
 }
 footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     min-height: 25%;
     text-align: center;
     padding: 1em;
     height: auto;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 header ul{
     display: inline;
@@ -84,6 +87,7 @@ footer div{
 }
 
 a{
+    color: rgb(22, 22, 26);
     text-decoration: none;
 }
 .formDiv1{
@@ -98,12 +102,14 @@ a{
     padding: 20px ;
     margin-top:10px;
 }
-button, .btn{
+.button{
     background-color: rgb(249, 194, 148);
-    color: black;
+    color: rgb(22, 23, 24);
     border-top: none;
     border-left: none;
     border-color: rgb(220, 127, 50);
+    width: 80px;
+    height: 30px;
 }
 .loginDiv{
     margin-right: 10px;

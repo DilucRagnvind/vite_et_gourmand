@@ -20,7 +20,7 @@ include('header.html');
 
 $dsn = 'mysql:host=localhost;dbname=vite_et_gourmand';
 $username = 'user_gourmand';
-$password = '$2y$12$p4hpWdhOec/2w626F1DDKOh8sZxCxssiExmxpkeEKLnaIInTbRQra';
+$password = '';
 
 try{
     $pdo = new PDO($dsn, $username, $password);
@@ -51,7 +51,7 @@ try{
 
     //Insérer les données dans la base 
     $insertQuery = "INSERT INTO users (email, password, name,  phone, city, country, adress)
-     VALUES (:email, :password, :name, :phone, :city, :country :adress)";
+     VALUES (:email, :password, :name, :phone, :city, :country, :adress)";
     $stmt = $pdo->prepare($insertQuery);
     $stmt->bindParam(':email', $emailForm);
     $stmt->bindParam(':password', $hashedPassword);
