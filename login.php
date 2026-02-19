@@ -23,7 +23,7 @@ session_start();
         <input type="password" name="password" required /> <br><br>
 
         <!-- BUTTON -->
-        <input type="submit" value="Se connecter"/>
+        <input class="button" type="submit" value="Se connecter"/>
     </form>
     <!-- INSCRIPTION -->
     <h4>Vous n'avez pas encore de compte?</h4>
